@@ -15,6 +15,7 @@ RUN set -ex; \
         vim \
         bash \
         net-tools \
+	network-manager \
         novnc \
         socat \
         x11vnc \
