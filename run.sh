@@ -19,18 +19,44 @@ Terminal=false
 StartupNotify=true
 EOF
 
-#cat << EOF >  /Desktop/AnyDesk.desktop
-#[Desktop Entry]
-#Version=1.0
-#Type=Application
-#Name=AnyDesk
-#Comment=
-#Exec=/usr/bin/anydesk
-#Icon=anydesk
-#Path=
-#Terminal=false
-#StartupNotify=true
-#EOF
+cat << EOF >  /Desktop/Chrome.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chrome
+Comment=Access the Internet
+Exec=/usr/bin/google-chrome-stable --no-sandbox --disable-dev-shm-usage
+Icon=chrome
+Path=
+Terminal=false
+StartupNotify=true
+EOF
+
+cat << EOF >  /Desktop/Firefox.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chrome
+Comment=Access the Internet
+Exec=/usr/bin/firefox --no-sandbox --disable-dev-shm-usage
+Icon=firefox
+Path=
+Terminal=false
+StartupNotify=true
+EOF
+
+cat << EOF >  /Desktop/AnyDesk.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AnyDesk
+Comment=
+Exec=/usr/bin/anydesk
+Icon=anydesk
+Path=
+Terminal=false
+StartupNotify=true
+EOF
 
 cat << EOF >  /Desktop/Swicth_to_Chinese_input.sh
 #!/bin/bash
@@ -45,5 +71,9 @@ Step 3: Now it can support Chinese, Enjoy!
 EOF
 
 chmod +x /Desktop/Chromium.desktop
+chmod +x /Desktop/Chrome.desktop
+chmod +x /Desktop/Firefox.desktop
+chmod +x /Desktop/AnyDesk.desktop
+
 chmod +x /Desktop/Swicth_to_Chinese_input.sh
 exec supervisord -c /app/supervisord.conf
