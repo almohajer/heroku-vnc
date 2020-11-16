@@ -36,6 +36,8 @@ RUN set -ex; \
 	fonts-wqy-microhei \  
 	ibus-pinyin \
 	ibus \
+	remmina \
+	remmina-plugin-vnc \
 	ibus-clutter \
 	ibus-gtk \
 	ibus-gtk3 \
