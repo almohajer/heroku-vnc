@@ -28,7 +28,7 @@ RUN set -ex; \
         g++ \
         ssh \
 	chromium-browser \
-	firefox \
+	wine32 \
         terminator \
         htop \
         gnupg2 \
