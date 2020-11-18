@@ -38,6 +38,7 @@ RUN set -ex; \
 	ibus \
 	remmina \
 	remmina-plugin-vnc \
+	wine-stable \
 	ibus-clutter \
 	ibus-gtk \
 	ibus-gtk3 \
