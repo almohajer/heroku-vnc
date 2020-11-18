@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -43,8 +43,8 @@ RUN set -ex; \
 	ibus-gtk3 \
 	ibus-qt4 \
     	&& apt-get autoclean \
-    && apt-get autoremove \
-    && rm -rf /var/lib/apt/lists/*
+	&& apt-get autoremove \
+	&& rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
