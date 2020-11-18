@@ -42,7 +42,6 @@ RUN set -ex; \
 	ibus-gtk \
 	ibus-gtk3 \
 	ibus-qt4 \
-	&& dpkg --add-architecture i386 && apt-get update && apt-get install wine32 \
     	&& apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
