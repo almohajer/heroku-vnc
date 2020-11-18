@@ -42,11 +42,11 @@ RUN set -ex; \
 	ibus-gtk \
 	ibus-gtk3 \
 	ibus-qt4 \
-    && apt-get autoclean \
+	&& dpkg --add-architecture i386 && apt-get update && apt-get install wine32 \
+    	&& apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
-RUN dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
