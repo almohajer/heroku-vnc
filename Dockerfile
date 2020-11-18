@@ -47,7 +47,7 @@ RUN set -ex; \
 	&& rm -rf /var/lib/apt/lists/*
 RUN sudo dpkg --add-architecture i386
 RUN dpkg --print-foreign-architectures
-RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key --no-check-certificate
 RUN sudo apt-key add winehq.key
 RUN sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
 RUN sudo apt update
