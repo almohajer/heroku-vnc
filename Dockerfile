@@ -5,8 +5,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 #RUN echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse\ndeb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse\ndeb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse\ndeb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse\ndeb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse\ndeb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse\ndeb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse\ndeb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse\ndeb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse\ndeb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse\n' > /etc/apt/sources.list
 RUN apt-get update && apt-get install -y apt-transport-https && apt-get install -y software-properties-common
 RUN set -ex; \
-    apt-get update \
-    && apt-get install -y --no-install-recommends \
+#    apt-get update \
+#    &&
+	apt-get install -y --no-install-recommends \
         dbus-x11 \
         nautilus \
         gedit \
@@ -15,7 +16,7 @@ RUN set -ex; \
         vim \
         bash \
         net-tools \
-	network-manager \
+#	network-manager \
         novnc \
         socat \
         x11vnc \
@@ -35,8 +36,8 @@ RUN set -ex; \
 	fonts-wqy-microhei \  
 	ibus-pinyin \
 	ibus \
-	remmina \
-	remmina-plugin-vnc \
+#	remmina \
+#	remmina-plugin-vnc \
 #	wine-stable \
 	ibus-clutter \
 	ibus-gtk \
@@ -45,7 +46,7 @@ RUN set -ex; \
     	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
-RUN dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y wine32
 RUN dpkg --print-foreign-architectures
 #RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key --no-check-certificate
 #RUN sudo apt-key add winehq.key
