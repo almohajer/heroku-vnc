@@ -37,7 +37,7 @@ RUN set -ex; \
 	ibus \
 	remmina \
 	remmina-plugin-vnc \
-	wine-stable \
+#	wine-stable \
 	ibus-clutter \
 	ibus-gtk \
 	ibus-gtk3 \
@@ -45,14 +45,14 @@ RUN set -ex; \
     	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
-RUN sudo dpkg --add-architecture i386
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 RUN dpkg --print-foreign-architectures
-RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key --no-check-certificate
-RUN sudo apt-key add winehq.key
-RUN sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-RUN sudo apt update
-RUN sudo apt install --install-recommends winehq-stable
-RUN wine --version
+#RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key --no-check-certificate
+#RUN sudo apt-key add winehq.key
+#RUN sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+#RUN sudo apt update
+#RUN sudo apt install --install-recommends winehq-stable
+#RUN wine --version
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
